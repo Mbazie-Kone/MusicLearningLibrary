@@ -3,6 +3,24 @@
 *.user
 *.suo
 
-# Buil folders
+# Build ouput
 bin/
 obj/
+
+# Logs
+*.log
+
+# Environment & Secrets
+*.env
+secrets.json
+
+# Angular build
+dist/
+node_modules/
+
+# Docker files
+docker-compose.override.yml
+
+# Temporary
+*.tmp
+*.temp
