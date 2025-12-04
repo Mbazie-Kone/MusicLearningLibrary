@@ -1,8 +1,6 @@
-version: '3.9'
-
 services:
   musicapi:
-    build: ./MusicApi
+    build: ./MusicLibrary.Api
     ports:
       - "5000:5000"
     environment:
