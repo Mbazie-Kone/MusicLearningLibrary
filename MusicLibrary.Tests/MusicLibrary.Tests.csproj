@@ -6,4 +6,14 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+<<<<<<< HEAD
+=======
+  <ItemGroup>
+    <ProjectReference Include="..\MusicLibrary.Api\MusicLibrary.Api.csproj" />
+    <ProjectReference Include="..\MusicLibrary.Application\MusicLibrary.Application.csproj" />
+    <ProjectReference Include="..\MusicLibrary.Domain\MusicLibrary.Domain.csproj" />
+    <ProjectReference Include="..\MusicLibrary.Infrastructure\MusicLibrary.Infrastructure.csproj" />
+  </ItemGroup>
+
+>>>>>>> ae4d6d9be9d47df2c33a2036deee3f199e898289
 </Project>

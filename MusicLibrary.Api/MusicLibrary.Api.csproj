@@ -1,13 +1,42 @@
+<<<<<<< HEAD
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+<<<<<<<< HEAD:MusicLibrary.Api/MusicLibrary.Api.csproj
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+========
+    <ProjectReference Include="..\MusicLibrary.Domain\MusicLibrary.Domain.csproj" />
+>>>>>>>> ae4d6d9be9d47df2c33a2036deee3f199e898289:MusicLibrary.Application/MusicLibrary.Application.csproj
+=======
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>e84cb85f-a47c-4e78-848d-4a3a8e789b67</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.22.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MusicLibrary.Application\MusicLibrary.Application.csproj" />
+    <ProjectReference Include="..\MusicLibrary.Infrastructure\MusicLibrary.Infrastructure.csproj" />
+>>>>>>> ae4d6d9be9d47df2c33a2036deee3f199e898289
   </ItemGroup>
 
 </Project>
