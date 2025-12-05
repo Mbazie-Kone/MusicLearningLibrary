@@ -2,18 +2,22 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
+    <IsPackable>false</IsPackable>
     <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-<<<<<<< HEAD
-=======
   <ItemGroup>
-    <ProjectReference Include="..\MusicLibrary.Api\MusicLibrary.Api.csproj" />
-    <ProjectReference Include="..\MusicLibrary.Application\MusicLibrary.Application.csproj" />
     <ProjectReference Include="..\MusicLibrary.Domain\MusicLibrary.Domain.csproj" />
-    <ProjectReference Include="..\MusicLibrary.Infrastructure\MusicLibrary.Infrastructure.csproj" />
+    <ProjectReference Include="..\MusicLibrary.Application\MusicLibrary.Application.csproj" />
   </ItemGroup>
 
->>>>>>> ae4d6d9be9d47df2c33a2036deee3f199e898289
+  <ItemGroup>
+    <PackageReference Include="xunit" Version="2.4.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.7.2" />
+  </ItemGroup>
+
 </Project>

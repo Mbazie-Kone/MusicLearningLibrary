@@ -6,15 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-<<<<<<< HEAD
-=======
   <ItemGroup>
-<<<<<<<< HEAD:MusicLibrary.Api/MusicLibrary.Api.csproj
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
-========
     <ProjectReference Include="..\MusicLibrary.Domain\MusicLibrary.Domain.csproj" />
->>>>>>>> ae4d6d9be9d47df2c33a2036deee3f199e898289:MusicLibrary.Application/MusicLibrary.Application.csproj
   </ItemGroup>
 
->>>>>>> ae4d6d9be9d47df2c33a2036deee3f199e898289
 </Project>
