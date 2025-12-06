@@ -1,3 +1,7 @@
 <Solution>
   <Project Path="MusicLibrary.Api/MusicLibrary.Api.csproj" />
+  <Project Path="MusicLibrary.Application/MusicLibrary.Application.csproj" />
+  <Project Path="MusicLibrary.Domain/MusicLibrary.Domain.csproj" />
+  <Project Path="MusicLibrary.Infrastructure/MusicLibrary.Infrastructure.csproj" />
+  <Project Path="MusicLibrary.Tests/MusicLibrary.Tests.csproj" />
 </Solution>

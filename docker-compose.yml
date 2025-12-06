@@ -1,0 +1,28 @@
+services:
+  musiclibrary-api:
+    build:
+      context: .
+      dockerfile: MusicLibrary.Api/Dockerfile
+    container_name: musiclibrary-api
+    ports:
+      - "5000:5000"
+      - "5001:5001"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=db;Database=MusicLibraryDb;User Id=sa;Password=12345678aA!;
+    depends_on:
+      - db
+
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: musiclibrary-db
+    environment:
+      SA_PASSWORD: "12345678aA!"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+    volumes:
+      - dbdata:/var/opt/mssql
+
+volumes:
+  dbdata:
