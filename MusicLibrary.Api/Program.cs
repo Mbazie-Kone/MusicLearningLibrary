@@ -1,4 +1,4 @@
-using MusicLibrary.Api.DbContexts;
+using MusicLibrary.Infrastructure.DbContexts;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

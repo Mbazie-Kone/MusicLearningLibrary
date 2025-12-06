@@ -12,7 +12,7 @@ services:
       - ConnectionStrings__DefaultConnection=Server=db;Database=MusicLibraryDb;User Id=sa;Password="12345678aA!";
     depends_on:
       - db
-    volumes
+    volumes:
       - ./MusicLibrary.Api:/app
       - /app/bin
 
