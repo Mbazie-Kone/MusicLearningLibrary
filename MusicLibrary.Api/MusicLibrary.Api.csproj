@@ -11,4 +11,8 @@
     <ProjectReference Include="..\MusicLibrary.Domain\MusicLibrary.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MusicLibrary.Infrastructure\MusicLibrary.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
