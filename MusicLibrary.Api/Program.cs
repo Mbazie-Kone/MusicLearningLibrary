@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add Dbcontext
 builder.Services.AddDbContext<MusicLibraryDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("MusicLibraryDatabase")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
