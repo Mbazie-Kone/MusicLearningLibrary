@@ -8,6 +8,5 @@ namespace MusicLibrary.Api.Controllers
     {
         [HttpGet]
         public IActionResult Get() => Ok("pong");
-        
     }
 }
