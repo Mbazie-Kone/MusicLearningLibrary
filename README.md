@@ -5,13 +5,17 @@
 [![SQL Server](https://img.shields.io/badge/SQL%20Server-2019-blue)](https://www.microsoft.com/en-us/sql-server)
 [![Docker](https://img.shields.io/badge/Docker-ready-blue)](https://www.docker.com/)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+[![Status](https://img.shields.io/badge/Project%20Status-In%20Development-orange)]()
 
 ---
 
 ## 📖 Project Overview
-The **Music Library / Media Manager** is a modern web application designed to help users **organize, manage, and explore their music collection** efficiently. 
+The **Music Library / Media Manager** is a modern web application designed to help users **organize, manage, and explore their music collection** efficiently.
 
-The project combines a **robust .NET 8 backend** with a **modern Angular frontend**, providing a **fast, responsive, and user-friendly experience**. Its goal is to offer music enthusiasts, producers, and casual listeners a centralized platform to manage audio files, metadata, playlists, and other media-related information seamlessly.
+The project currently includes a fully structured **.NET 8 backend** following a **clean and scalable architecture** (Domain, Application, Infrastructure, Api), and a Dockerized SQL Server environment for persistent storage.  
+The Angular frontend is **planned but not yet started**.
+
+The goal is to evolve into a complete media platform for uploading, cataloging, storing, and managing audio files.
 
 ---
 
@@ -40,47 +44,115 @@ The project combines a **robust .NET 8 backend** with a **modern Angular fronten
 | Layer | Technology |
 |-------|------------|
 | Backend | .NET 8 Web API |
+| Architecture | Clean Architecture (Domain, Application, Infrastructure, Api) |
 | Frontend | Angular (latest) |
 | Database | Microsoft SQL Server |
+| ORM | Entity Framework Core |
+| Storage | Local filesystem → MinIO (planned) |
 | Version Control | Git & GitHub |
 | Deployment | Docker |
 
 ---
 
+## 🖼️ Screenshots
+
+*(Screenshots will be added once the frontend is developed)*
+
+---
+
+## 📡 Current Endpoints (Implemented / In Progress)
+
+### ✔️ Implemented
+`GET /api/media/ping`
+
+Used to verify that the API is running correctly.
+
+### 🏗️ In Progress
+
+`POST /api/media/upload`
+
+- Saves the uploaded file physically.
+
+- Saves metadata in the database.
+
+- Uses `MediaItem` entity & repository.
+
+### ⏳ Planned
+
+- `GET /api/media` – list all uploaded items
+
+- `DELETE /api/media/{id}` – remove media
+
+- `GET /api/media/{id}` – fetch details
+
+---
+
 ## ⚡ Installation & Setup
-1. **Clone the repository**
-```bash
+
+#### 1. Clone the repository
+```
 git clone https://github.com/Mbazie-Kone/MusicLibrary.git
+
 ```
-2. **Backend setup**
-```bash
-cd MusicApi
-dotnet restore
+#### 2. Start SQL Server via Docker
+```
+docker compose up -d
+
+```
+#### 3. Apply EF Core migrations
+```
+dotnet ef database update -p MusicLibrary.Infrastructure -s MusicLibrary.Api
+
+```
+#### 4. Run the API
+```
+cd MusicLibrary.Api
 dotnet run
+
 ```
-3. **Frontend setup**
-```bash
-cd MusicApp
-npm install
-ng serve
-```
+
+---
+
+## API available at:
+
+- HTTP → http://localhost:5000
+
+- HTTPS → https://localhost:7000
+
+---
 
 ## 🚀 Future Improvements
-* Support for multiple audio formats and metadata extraction.
-* Enhanced search and recommendation algorithms.
-* Integration with cloud storage or third-party music platforms.
-* User-friendly dashboard with analytics on listening habits.
+
+- Complete media upload workflow
+
+- Implement media listing
+
+- Add MinIO storage support
+
+- Add Angular frontend
+
+- Introduce authentication (JWT)
+
+- Add a background worker (MediaProcessor Service)
+
+- Improve logging and validation
+  
+---
 
 ## 🤝 Contributing
-Contributions are welcome! Please follow the standard Git workflow:
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
 
+I follow GitFlow:
 
+- `main` → production
 
+- `develop` → active development
 
+- `feature/*` → new features
 
+Pull requests are welcome.
 
+---
 
+## 📄 License
+
+This project is licensed under the MIT License.

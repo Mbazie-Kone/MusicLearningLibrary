@@ -19,10 +19,12 @@ RUN dotnet publish -c Release -o /app/publish /p:UseAppHost=false
 # ===== RUNTIME STAGE =====
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
 WORKDIR /app
+
+ENV ASPNETCORE_URLS=http://+:5000
+
 COPY --from=build /app/publish .
 
 EXPOSE 5000
-EXPOSE 5001
 
 # Set entrypoint
 ENTRYPOINT ["dotnet", "MusicLibrary.Api.dll"]

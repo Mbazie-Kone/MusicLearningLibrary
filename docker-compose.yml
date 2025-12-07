@@ -6,12 +6,13 @@ services:
     container_name: musiclibrary-api
     ports:
       - "5000:5000"
-      - "5001:5001"
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__DefaultConnection=Server=db;Database=MusicLibraryDb;User Id=sa;Password=12345678aA!;
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__DefaultConnection: "Server=db;Database=MusicLibraryDb;User Id=sa;Password=12345678aA!;TrustServerCertificate=True;"
     depends_on:
       - db
+    networks:
+      - musicnetwork
 
   db:
     image: mcr.microsoft.com/mssql/server:2022-latest
@@ -26,3 +27,6 @@ services:
 
 volumes:
   dbdata:
+  
+networks:
+  musicnetwork:
