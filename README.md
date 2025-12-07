@@ -89,12 +89,12 @@ Used to verify that the API is running correctly.
 
 ## ⚡ Installation & Setup
 
-### 1. Clone the repository
+1. Clone the repository
 ```
 git clone https://github.com/Mbazie-Kone/MusicLibrary.git
 
 ```
-### 2. Start SQL Server via Docker
+#### 2. Start SQL Server via Docker
 ```
 docker compose up -d
 
