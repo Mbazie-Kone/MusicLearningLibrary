@@ -89,7 +89,7 @@ Used to verify that the API is running correctly.
 
 ## ⚡ Installation & Setup
 
-1. Clone the repository
+#### 1. Clone the repository
 ```
 git clone https://github.com/Mbazie-Kone/MusicLibrary.git
 
@@ -99,12 +99,12 @@ git clone https://github.com/Mbazie-Kone/MusicLibrary.git
 docker compose up -d
 
 ```
-### 3. Apply EF Core migrations
+#### 3. Apply EF Core migrations
 ```
 dotnet ef database update -p MusicLibrary.Infrastructure -s MusicLibrary.Api
 
 ```
-### 4. Run the API
+#### 4. Run the API
 ```
 cd MusicLibrary.Api
 dotnet run
