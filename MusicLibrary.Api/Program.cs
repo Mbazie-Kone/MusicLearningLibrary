@@ -2,6 +2,7 @@ using MusicLibrary.Infrastructure.DbContexts;
 using Microsoft.EntityFrameworkCore;
 using MusicLibrary.Infrastructure.Repositories;
 using MusicLibrary.Api.Services;
+using Microsoft.AspNetCore.Http.Features;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,7 +16,16 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IMediaRepository, MediaRepository>();
-builder.Services.AddScoped<IFileStorageService, FileStorageService>();
+
+// Minio Service Registration
+builder.Services.AddSingleton<IMinioService, MinioService>();
+
+builder.Services.Configure<FormOptions>(options =>
+{
+    options.MultipartBodyLengthLimit = 1073741824; // 1 GB
+    options.ValueLengthLimit = int.MaxValue;
+    options.MultipartHeadersLengthLimit = int.MaxValue;
+});
 
 // Minio Service Registration
 builder.Services.AddSingleton<IMinioService, MinioService>();
@@ -29,7 +39,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+// app.UseHttpsRedirection(); // Disabled for MinIO testing without SSL
 
 app.UseAuthorization();
 
