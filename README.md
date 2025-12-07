@@ -56,43 +56,43 @@ The goal is to evolve into a complete media platform for uploading, cataloging, 
 
 ## 🖼️ Screenshots
 
-> *(Screenshots will be added once the frontend is developed)*
+*(Screenshots will be added once the frontend is developed)*
 
 ```
 ```
 ## 📡 Current Endpoints (Implemented / In Progress)
 
-# ✔️ Implemented
-GET /api/media/ping
+### ✔️ Implemented
+`GET /api/media/ping`
 
 Used to verify that the API is running correctly.
 
-## 🏗️ In Progress
+### 🏗️ In Progress
 
-POST /api/media/upload
+`POST /api/media/upload`
 
 - Saves the uploaded file physically.
 
 - Saves metadata in the database.
 
-- Uses MediaItem entity & repository.
+- Uses `MediaItem` entity & repository.
 
-## ⏳ Planned
+### ⏳ Planned
 
-- GET /api/media – list all uploaded items
+- `GET /api/media` – list all uploaded items
 
-- DELETE /api/media/{id} – remove media
+- `DELETE /api/media/{id}` – remove media
 
-- GET /api/media/{id} – fetch details
+- `GET /api/media/{id}` – fetch details
 
 ## ⚡ Installation & Setup
 
-# 1. Clone the repository
-# 2. Start SQL Server via Docker
-# 3. Apply EF Core migrations
-# 4. Run the API
+### 1. Clone the repository
+### 2. Start SQL Server via Docker
+### 3. Apply EF Core migrations
+### 4. Run the API
 
-API available at:
+## API available at:
 
 - HTTP → http://localhost:5000
 
@@ -118,10 +118,14 @@ API available at:
 
 I follow GitFlow:
 
-- main → production
+- `main` → production
 
-- develop → active development
+- `develop` → active development
 
-- feature/* → new features
+- `feature/*` → new features
 
 Pull requests are welcome.
+
+## 📄 License
+
+This project is licensed under the MIT License.
