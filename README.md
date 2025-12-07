@@ -58,8 +58,8 @@ The goal is to evolve into a complete media platform for uploading, cataloging, 
 
 *(Screenshots will be added once the frontend is developed)*
 
-```
-```
+---
+
 ## 📡 Current Endpoints (Implemented / In Progress)
 
 ### ✔️ Implemented
@@ -85,18 +85,41 @@ Used to verify that the API is running correctly.
 
 - `GET /api/media/{id}` – fetch details
 
+---
+
 ## ⚡ Installation & Setup
 
 ### 1. Clone the repository
+```
+git clone https://github.com/Mbazie-Kone/MusicLibrary.git
+
+```
 ### 2. Start SQL Server via Docker
+```
+docker compose up -d
+
+```
 ### 3. Apply EF Core migrations
+```
+dotnet ef database update -p MusicLibrary.Infrastructure -s MusicLibrary.Api
+
+```
 ### 4. Run the API
+```
+cd MusicLibrary.Api
+dotnet run
+
+```
+
+---
 
 ## API available at:
 
 - HTTP → http://localhost:5000
 
 - HTTPS → https://localhost:7000
+
+---
 
 ## 🚀 Future Improvements
 
@@ -113,6 +136,8 @@ Used to verify that the API is running correctly.
 - Add a background worker (MediaProcessor Service)
 
 - Improve logging and validation
+  
+---
 
 ## 🤝 Contributing
 
@@ -125,6 +150,8 @@ I follow GitFlow:
 - `feature/*` → new features
 
 Pull requests are welcome.
+
+---
 
 ## 📄 License
 
