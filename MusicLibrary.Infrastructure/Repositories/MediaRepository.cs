@@ -13,7 +13,7 @@ namespace MusicLibrary.Infrastructure.Repositories
             _context = context;
         }
 
-        public async Task Addsync(MediaItem item)
+        public async Task AddAsync(MediaItem item)
         {
             _context.MediaItems.Add(item);
             await _context.SaveChangesAsync();
@@ -28,7 +28,7 @@ namespace MusicLibrary.Infrastructure.Repositories
 
         public async Task<MediaItem?> GetByIdAsync(int id)
         {
-            return await _context.MediaItems.FindAsync(id);
+            return await _context.MediaItems.FirstOrDefaultAsync(m => m.Id == id);
         }
 
         public async Task UpdateAsync(MediaItem item)
