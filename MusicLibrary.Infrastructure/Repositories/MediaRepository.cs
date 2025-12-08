@@ -33,7 +33,6 @@ namespace MusicLibrary.Infrastructure.Repositories
 
         public async Task UpdateAsync(MediaItem item)
         {
-            _context.MediaItems.Update(item);
             await _context.SaveChangesAsync();
         }
 
