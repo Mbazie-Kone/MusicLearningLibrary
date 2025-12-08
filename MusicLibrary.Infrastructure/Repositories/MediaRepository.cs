@@ -46,6 +46,7 @@ namespace MusicLibrary.Infrastructure.Repositories
         public Task DeleteAsync(int id)
         {
             throw new NotImplementedException();
+
         }
     }
 }
