@@ -1,4 +1,19 @@
 services:
+  minio:
+    image: quay.io/minio/minio
+    container_name: minio
+    ports:
+      - "9000:9000"
+      - "9001:9001" # MinIO Console
+    environment:
+      MINIO_ROOT_USER: "minioadmin"
+      MINIO_ROOT_PASSWORD: "minioadmin"
+    command: server /data --console-address ":9001"
+    volumes:
+      - minio_data:/data
+    networks:
+      - musicnetwork    
+    
   musiclibrary-api:
     build:
       context: .
@@ -11,6 +26,18 @@ services:
       ConnectionStrings__DefaultConnection: "Server=db;Database=MusicLibraryDb;User Id=sa;Password=12345678aA!;TrustServerCertificate=True;"
     depends_on:
       - db
+    networks:
+      - musicnetwork
+  
+  mediaprocessor:
+    build:
+      context: .
+      dockerfile: MediaProcessor/Dockerfile
+    depends_on:
+      - db
+      - minio
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
     networks:
       - musicnetwork
 
@@ -29,6 +56,7 @@ services:
 
 volumes:
   dbdata:
+  minio_data:
   
 networks:
   musicnetwork:

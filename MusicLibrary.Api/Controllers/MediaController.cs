@@ -2,6 +2,7 @@
 using MusicLibrary.Api.Services;
 using MusicLibrary.Domain.Entities;
 using MusicLibrary.Infrastructure.Repositories;
+using MusicLibrary.Api.Dtos;
 
 namespace MusicLibrary.Api.Controllers
 {
@@ -11,11 +12,13 @@ namespace MusicLibrary.Api.Controllers
     {
         private readonly IFileStorageService _fileStorage;
         private readonly IMediaRepository _mediaRepository;
+        private readonly IMinioService _minioService;
 
-        public MediaController(IFileStorageService fileStorage, IMediaRepository mediaRepository)
+        public MediaController(IFileStorageService fileStorage, IMediaRepository mediaRepository, IMinioService minioService)
         {
             _fileStorage = fileStorage;
             _mediaRepository = mediaRepository;
+            _minioService = minioService;
         }
 
         [HttpPost("upload")]
@@ -25,7 +28,7 @@ namespace MusicLibrary.Api.Controllers
                 return BadRequest("No file uploaded.");
 
             // Save the file physically
-            string storedFileName = await _fileStorage.SaveFileAsync(file);
+            string storedFileName = await _minioService.UploadFileAsync(file);
 
             // Create the MediaItem entity
             var mediaItem = new MediaItem
@@ -62,6 +65,54 @@ namespace MusicLibrary.Api.Controllers
             });
 
             return Ok(result);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var item = await _mediaRepository.GetByIdAsync(id);
+            if (item == null)
+                return NotFound();
+
+            return Ok(item);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(int id, [FromBody] UpdateMediaItemRequest request)
+        {
+
+            var item = await _mediaRepository.GetByIdAsync(id);
+            if (item == null)
+                return NotFound();
+
+            item.Title = request.Title;
+            
+            await _mediaRepository.UpdateAsync(item);
+            return Ok(item);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var item = await _mediaRepository.GetByIdAsync(id);
+            if (item == null)
+                return NotFound();
+
+            // Delete physical file (best effort, log if fails?)
+            try 
+            {
+                await _minioService.DeleteFileAsync(item.FileName);
+            }
+            catch (Exception)
+            {
+                // If file deletion fails, abort the operation to maintain consistency
+                // between MinIO storage and database records
+                throw; 
+            }
+
+            await _mediaRepository.DeleteAsync(id);
+
+            return NoContent();
         }
        
     }
