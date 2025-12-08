@@ -41,5 +41,11 @@ namespace MusicLibrary.Infrastructure.Repositories
             _context.MediaItems.Remove(item);
             await _context.SaveChangesAsync();
         }
+
+        // TO DO
+        public Task DeleteAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
