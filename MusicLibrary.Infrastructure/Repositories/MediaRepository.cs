@@ -25,5 +25,26 @@ namespace MusicLibrary.Infrastructure.Repositories
                 .OrderByDescending(m => m.UploadedAt)
                 .ToListAsync();
         }
+
+        public async Task<MediaItem?> GetByIdAsync(int id)
+        {
+            return await _context.MediaItems.FindAsync(id);
+        }
+
+        public async Task UpdateAsync(MediaItem item)
+        {
+            _context.MediaItems.Update(item);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task DeleteAsync(int id)
+        {
+            var item = await _context.MediaItems.FindAsync(id);
+            if (item != null)
+            {
+                _context.MediaItems.Remove(item);
+                await _context.SaveChangesAsync();
+            }
+        }
     }
 }
