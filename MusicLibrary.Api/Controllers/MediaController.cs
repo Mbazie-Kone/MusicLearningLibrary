@@ -80,8 +80,6 @@ namespace MusicLibrary.Api.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, [FromBody] UpdateMediaItemRequest request)
         {
-            if (request == null)
-                return BadRequest("Invalid request.");
 
             var item = await _mediaRepository.GetByIdAsync(id);
             if (item == null)
