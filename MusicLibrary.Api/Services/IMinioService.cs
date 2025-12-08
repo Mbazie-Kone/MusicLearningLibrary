@@ -2,5 +2,7 @@
 {
     public interface IMinioService
     {
+        Task EnsureBucketExistsAsync();
+        Task<string> UploadFileAsync(IFormFile file);
     }
 }
