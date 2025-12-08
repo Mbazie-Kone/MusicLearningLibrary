@@ -21,7 +21,9 @@ namespace MusicLibrary.Infrastructure.Repositories
 
         public async Task<List<MediaItem>> GetAllAsync()
         {
-            return await _context.MediaItems.ToListAsync();
+            return await _context.MediaItems
+                .OrderByDescending(m => m.UploadedAt)
+                .ToListAsync();
         }
     }
 }
