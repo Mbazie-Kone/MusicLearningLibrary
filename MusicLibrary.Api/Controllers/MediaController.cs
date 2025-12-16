@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MusicLibrary.Api.Dtos;
 using MusicLibrary.Api.Services;
 using MusicLibrary.Domain.Entities;
+using MusicLibrary.Domain.Enums;
 using MusicLibrary.Infrastructure.Repositories;
-using MusicLibrary.Api.Dtos;
 
 namespace MusicLibrary.Api.Controllers
 {
@@ -10,23 +11,24 @@ namespace MusicLibrary.Api.Controllers
     [Route("api/[controller]")]
     public class MediaController : ControllerBase
     {
-        private readonly IFileStorageService _fileStorage;
         private readonly IMediaRepository _mediaRepository;
         private readonly IMinioService _minioService;
 
-        public MediaController(IFileStorageService fileStorage, IMediaRepository mediaRepository, IMinioService minioService)
+        public MediaController(IMediaRepository mediaRepository, IMinioService minioService)
         {
-            _fileStorage = fileStorage;
             _mediaRepository = mediaRepository;
             _minioService = minioService;
         }
 
         // POST: api/Media/upload
+        [RequestSizeLimit(1073741824)] // 1 GB limit
         [HttpPost("upload")]
         public async Task<IActionResult> Upload([FromForm] IFormFile file)
         {
             if (file == null || file.Length == 0 )
+            {
                 return BadRequest("No file uploaded.");
+            }
 
             // Save the file physically
             string storedFileName = await _minioService.UploadFileAsync(file);
@@ -37,16 +39,18 @@ namespace MusicLibrary.Api.Controllers
                 Title = Path.GetFileNameWithoutExtension(file.FileName),
                 FileName = storedFileName,
                 FileType = Path.GetExtension(file.FileName)?.Replace(".", ""),
-                FileSize = file.Length
+                FileSize = file.Length,
+                UploadedAt = DateTime.UtcNow,
+                Status = MediaStatus.Pending
             };
 
             // Save the metadata in the database
-            await _mediaRepository.Addsync(mediaItem);
+            await _mediaRepository.AddAsync(mediaItem);
 
             return Ok(new
             {
-                message = "File uploaded successfully",
-                file = mediaItem
+                success = true,
+                id = mediaItem.Id
             });
         }
 
@@ -70,7 +74,7 @@ namespace MusicLibrary.Api.Controllers
         }
 
         // GET: api/Media/{id}
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public async Task<IActionResult> GetById(int id)
         {
             var item = await _mediaRepository.GetByIdAsync(id);
@@ -82,42 +86,27 @@ namespace MusicLibrary.Api.Controllers
 
         // GET: api/Media/{id}/stream
         [HttpGet("{id:int}/stream")]
-        public async Task<IActionResult> Stream(int id, CancellationToken cancellationToken)
+        public async Task<IActionResult> Stream(int id)
         {
-            // 400 -> invalid id
-            if (id <= 0)
-                return BadRequest("Invalid media ID.");
 
-            // 404 -> not found
             var media = await _mediaRepository.GetByIdAsync(id);
             if (media == null)
                 return NotFound();
 
-            try
-            {
-                var (contentType, size) = await _minioService.GetObjectInfoAsync(media.FileName);
+            var (contentType, _) = await _minioService.GetObjectInfoAsync(media.FileName);
 
-                Response.Headers.Add("Accept-Ranges", "bytes");
+            var memory = new MemoryStream();
 
-                if (size.HasValue)
-                    Response.ContentLength = size.Value;
+            await _minioService.StreamObjectAsync(media.FileName, memory);
+            memory.Position = 0;
 
-                Response.ContentType = contentType;
 
-                // Direct streaming in the response body
-                await _minioService.StreamObjectAsync(media.FileName, Response.Body, cancellationToken);
-
-                return new EmptyResult();
-            }
-            catch (Exception ex)
-            {
-                // 500 → storage or streaming failure
-                return StatusCode(StatusCodes.Status500InternalServerError, "Error while streaming media file.");
-            }
+            return File(memory, contentType ?? "audio/mpeg", enableRangeProcessing: true);
+            
         }
 
         // PUT: api/Media/{id}
-        [HttpPut("{id}")]
+        [HttpPut("{id:int}")]
         public async Task<IActionResult> Update(int id, [FromBody] UpdateMediaItemRequest request)
         {
 
@@ -132,7 +121,7 @@ namespace MusicLibrary.Api.Controllers
         }
 
         // DELETE: api/Media/{id}
-        [HttpDelete("{id}")]
+        [HttpDelete("{id:int}")]
         public async Task<IActionResult> Delete(int id)
         {
             var item = await _mediaRepository.GetByIdAsync(id);
@@ -155,6 +144,6 @@ namespace MusicLibrary.Api.Controllers
 
             return NoContent();
         }
-       
+
     }
 }

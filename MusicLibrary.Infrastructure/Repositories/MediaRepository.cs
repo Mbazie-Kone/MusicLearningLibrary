@@ -13,7 +13,7 @@ namespace MusicLibrary.Infrastructure.Repositories
             _context = context;
         }
 
-        public async Task Addsync(MediaItem item)
+        public async Task AddAsync(MediaItem item)
         {
             _context.MediaItems.Add(item);
             await _context.SaveChangesAsync();
