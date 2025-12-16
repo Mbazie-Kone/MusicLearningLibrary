@@ -4,7 +4,7 @@ namespace MusicLibrary.Infrastructure.Repositories
 {
     public interface IMediaRepository
     {
-        Task Addsync(MediaItem item);
+        Task AddAsync(MediaItem item);
 
         Task DeleteAsync(int id);
         Task<List<MediaItem>> GetAllAsync();

@@ -10,7 +10,10 @@ RUN npm run build -- --configuration production
 
 # Runtime stage
 FROM nginx:alpine
-COPY --from=build /app/dist/music-library-ui /usr/share/nginx/html
+
+# SPA fallback (Angular routing)
 COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+COPY --from=build /app/dist/music-library-ui/browser /usr/share/nginx/html
 
 EXPOSE 80

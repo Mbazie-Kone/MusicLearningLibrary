@@ -25,6 +25,10 @@ services:
     environment:
       ASPNETCORE_ENVIRONMENT: Development
       ConnectionStrings__DefaultConnection: "Server=db;Database=MusicLibraryDb;User Id=sa;Password=12345678aA!;TrustServerCertificate=True;"
+      Minio__Endpoint: "minio:9000"
+      Minio__AccessKey: "minioadmin"
+      Minio__SecretKey: "minioadmin"
+      Minio__BucketName: "media"
     depends_on:
       - db
       - minio
@@ -40,6 +44,11 @@ services:
       - minio
     environment:
       ASPNETCORE_ENVIRONMENT: "Development"
+      ConnectionStrings__DefaultConnection: "Server=db;Database=MusicLibraryDb;User Id=sa;Password=12345678aA!;TrustServerCertificate=True;"
+      Minio__Endpoint: "minio:9000"
+      Minio__AccessKey: "minioadmin"
+      Minio__SecretKey: "minioadmin"
+      Minio__BucketName: "media"
     networks:
       - musicnetwork
 
@@ -58,7 +67,7 @@ services:
       
   frontend:
     build:
-      context: ./music-library-ui
+      context: ./frontend/music-library-ui
       dockerfile: Dockerfile
     container_name: musiclibrary-frontend
     ports:
