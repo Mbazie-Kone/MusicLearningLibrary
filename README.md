@@ -139,7 +139,7 @@ dotnet run
 - `develop` is the integration branch
 - Feature branches must be created from `develop`
 - Merges into `develop` should use Rebase or Squash
-- Merges into `main` should use Squash
+- Merges into `main` should use Rebase and Merge
 - `node_modules` must never be committed
 - Conflicts must be resolved locally, not via GitHub UI
 
