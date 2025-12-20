@@ -155,7 +155,7 @@ We follow GitFlow:
 
 - `feature/*` → new features
 
-Pull requests are welcome.
+Pull requests are welcome and should target the `develop` branch.
 
 ---
 
