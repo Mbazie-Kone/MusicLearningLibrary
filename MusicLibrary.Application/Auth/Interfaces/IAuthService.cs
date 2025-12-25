@@ -6,5 +6,6 @@ namespace MusicLibrary.Application.Auth.Interfaces
     {
         Task RegisterAsync(RegisterUserCommand command, CancellationToken ct = default);
         Task ConfirmEmailAsync(ConfirmEmailCommand command, CancellationToken ct = default);
+        Task LoginAsync(LoginCommand command, CancellationToken ct = default);
     }
 }

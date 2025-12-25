@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MusicLibrary.Api.Dtos;
 using MusicLibrary.Application.Auth.Commands;
 using MusicLibrary.Application.Auth.Interfaces;
 
@@ -24,6 +25,22 @@ namespace MusicLibrary.Api.Controllers
                 await _authService.RegisterAsync(command, ct);
 
                 return Ok("Registration started. Check your email.");
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginRequestDto dto, CancellationToken ct)
+        {
+            try
+            {
+                var command = new LoginCommand(dto.Email, dto.Password);
+                await _authService.LoginAsync(command, ct);
+
+                return Ok("Login successful.");
             }
             catch (InvalidOperationException ex)
             {

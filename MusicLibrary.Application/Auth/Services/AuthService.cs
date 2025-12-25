@@ -99,5 +99,21 @@ namespace MusicLibrary.Application.Auth.Services
             await _users.SaveChangeAsync(ct);
             await _tokens.SaveChangeAsync(ct);
         }
+
+        public async Task LoginAsync(LoginCommand command, CancellationToken ct = default)
+        {
+            var user = await _users.GetByEmailAsync(command.Email, ct);
+
+            if (user is null)
+                throw new InvalidOperationException("Invalid email or password.");
+
+            if (!user.EmailConfirmed)
+                throw new InvalidOperationException("Email not confirmed.");
+
+            var passwordValid = _passwordHasher.Verify(command.Password, user.PasswordHash);
+
+            if (!passwordValid)
+                throw new InvalidOperationException("Invalid email or password.");
+        }
     }
 }
