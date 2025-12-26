@@ -13,7 +13,7 @@ interface LoginResponse {
 
 export class AuthService {
 
-  private readonly baseUrl = environment.apiBaseUrl;
+  private readonly baseUrl = environment.loginRegisterBaseUrl;
 
   constructor(private http: HttpClient) { }
 
