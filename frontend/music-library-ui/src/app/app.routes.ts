@@ -4,6 +4,7 @@ import { MediaListComponent } from './features/media-list/media-list.component';
 import { RegisterComponent } from './auth/pages/register/register.component';
 import { LoginComponent } from './auth/pages/login/login.component';
 import { authGuard } from './core/guards/auth.guard';
+import { LogoutComponent } from './auth/pages/logout/logout.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -17,5 +18,6 @@ export const routes: Routes = [
             { path: 'upload', component: MediaUploadComponent }
         ]
     },
+    { path: 'logout', component: LogoutComponent },
     { path: '**', redirectTo: 'login' }
 ];
