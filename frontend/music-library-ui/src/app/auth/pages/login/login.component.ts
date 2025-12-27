@@ -43,7 +43,7 @@ export class LoginComponent {
           this.loading = false;
           
           // Redirect UX
-          this.router.navigate(['/']);
+          this.router.navigate(['/media']);
         },
         error: err => {
           this.errorMessage = err.error || 'Invalid credentials.';
