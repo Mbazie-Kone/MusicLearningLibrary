@@ -237,6 +237,38 @@ html, body {
     flex: 1;
 }
 
+/* Auth hero split */
+.auth-hero {
+    flex: 1;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.auth-hero-content {
+    max-width: 420px;
+}
+
+.auth-hero h1 {
+    margin-top: 0;
+    font-size: 32px;
+}
+
+.auth-hero p {
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+.auth-form-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /* Forms */
 .form-group {
     display: flex;
