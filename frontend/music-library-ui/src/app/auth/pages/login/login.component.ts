@@ -15,6 +15,7 @@ export class LoginComponent {
 
   loading = false;
   errorMessage?: string;
+  showPassword = false;
 
   form: FormGroup;
 
@@ -23,6 +24,14 @@ export class LoginComponent {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
     });
+  }
+
+  togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
+    const passwordInput = document.querySelector('input[formControlName="password"]') as HTMLInputElement;
+    if (passwordInput) {
+      passwordInput.type = this.showPassword ? 'text' : 'password';
+    }
   }
 
   submit(): void {
