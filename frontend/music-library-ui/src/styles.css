@@ -171,14 +171,14 @@ html, body {
   .icon-instagram-filled:before { content: '\f31f'; } /* '' */
   .icon-paypal:before { content: '\f342'; } /* '' */
   
-/* Navbar & app layout container */
+/* Navbar & app layout container 
 .app-container {
     max-width: 960px;
     margin: 0 auto;
     padding: 24px;
 }
 
-/* Auth full-page layout */
+Auth full-page layout 
 .auth-page {
     min-height: 100vh;
     display: flex;
@@ -190,7 +190,7 @@ html, body {
     flex: 1;
 }
 
-/* Auth hero split */
+/* Auth hero split 
 .auth-hero {
     flex: 1;
     background: linear-gradient(135deg, #1e3c72, #2a5298);
@@ -224,7 +224,7 @@ html, body {
 
 /* FORMS */
 
-/* Login & register */
+/* Login & register 
 .auth-form {
     background: #ffffff;
     padding: 24px;
@@ -306,7 +306,7 @@ html, body {
 
 /* RESPONSIVE SECTION */
 
-/* Responsive auth full-page */
+/* Responsive auth full-page 
 @media (max-width: 768px) {
     .auth-page-content {
         flex-direction: column;
