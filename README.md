@@ -1,7 +1,7 @@
 # 🎵 Music Learning Library
 
 [![.NET](https://img.shields.io/badge/.NET-8-blue)](https://dotnet.microsoft.com/)
-[![Angular](https://img.shields.io/badge/Angular-integrated-red)](https://angular.io/)
+[![Angular](https://img.shields.io/badge/Angular-latest-red)](https://angular.io/)
 [![SQL Server](https://img.shields.io/badge/SQL%20Server-Docker-blue)](https://www.docker.com/)
 [![MinIO](https://img.shields.io/badge/Object%20Storage-MinIO-blue)](https://min.io/)
 [![Docker](https://img.shields.io/badge/Docker-ready-blue)](https://www.docker.com/)
@@ -152,16 +152,36 @@ docker compose up --build -d
 ```
 #### 3. Apply EF Core migrations
 ```bash
-dotnet ef database update -p MusicLibrary.Infrastructure -s MusicLibrary.Api
+dotnet ef database update -p MusicLearningLibrary.Infrastructure -s MusicLearningLibrary.Api
 ```
 #### 4. Run the API
 ```
-cd MusicLibrary.Api
+cd MusicLearningLibrary.Api
 dotnet run
 ```
 ---
 
-## Internal Git workflow
+## 🚀 Roadmap
+
+ - Audio feature extraction (BPM, key)
+
+ - Chord detection pipeline
+
+ - Melody note extraction
+
+ - Music learning domain models
+
+ - Learning-oriented frontend views
+
+ - User practice tracking
+
+ - Authentication & user profiles
+
+ - AI-assisted music analysis
+ 
+ ---
+
+## 🧭 Internal Git Workflow
 
 - `main` is protected and represents production-ready code
 - `develop` is the integration branch
