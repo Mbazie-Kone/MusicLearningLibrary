@@ -1,73 +1,76 @@
-# 🎵 Music Library / Media Manager
+# 🎵 Music Learning Library
 
 [![.NET](https://img.shields.io/badge/.NET-8-blue)](https://dotnet.microsoft.com/)
-[![Angular](https://img.shields.io/badge/Angular-latest-red)](https://angular.io/)
-[![SQL Server](https://img.shields.io/badge/SQL%20Server-2019-blue)](https://www.microsoft.com/en-us/sql-server)
+[![Angular](https://img.shields.io/badge/Angular-integrated-red)](https://angular.io/)
+[![SQL Server](https://img.shields.io/badge/SQL%20Server-Docker-blue)](https://www.docker.com/)
+[![MinIO](https://img.shields.io/badge/Object%20Storage-MinIO-blue)](https://min.io/)
 [![Docker](https://img.shields.io/badge/Docker-ready-blue)](https://www.docker.com/)
-[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
-[![Status](https://img.shields.io/badge/Project%20Status-In%20Development-orange)]()
+[![Status](https://img.shields.io/badge/Status-Active%20Development-orange)]()
 
 ---
 
-## 📖 Project Overview
+## 📖 Product Overview
 
-The **Music Library / Media Manager** is a full-stack application designed to manage, store, and organize music and media files together with their metadata.
+**Music Learning Library** is a full-stack application designed to go beyond traditional music players and media managers.
 
-The project currently consists of:
-- a **.NET 8 backend** built using **Clean Architecture**
-- a **Dockerized SQL Server** database
-- an **Angular frontend** integrated into the solution
-- a **background worker service** for media-related processing
-- **object storage support via MinIO**
+The platform allows users to **upload their own music** and not only manage it, but also **learn how to play it** by providing structured musical information and analysis.
 
-The system exposes RESTful APIs to upload, list, and manage media files while persisting metadata in a relational database and storing files in object storage.
+The project combines:
+- media storage and management  
+- musical feature extraction  
+- learning-oriented workflows  
+
+into a single, scalable system.
+
+At its current stage, the core media pipeline is already implemented, while the application is now evolving toward **music analysis and learning features**.
+
+---
+
+## 🎯 Product Vision
+
+The main goal of Music Learning Library is to transform passive listening into **active learning**.
+
+Users should be able to:
+- upload a song they want to learn
+- understand its musical properties (tempo, key, chords, melody)
+- use this information to practice, study, and improve their musical skills
+
+The application is intentionally designed to support future extensions such as advanced analysis algorithms and AI-assisted music understanding.
+
+---
+
+## 🧱 Current State of the Project
+
+The project is fully functional as a **media management system** and provides a solid technical foundation for the learning features currently under development.
+
+### ✅ Implemented
+- Media upload workflow
+- Media listing
+- Object storage via **MinIO**
+- Metadata persistence in **SQL Server**
+- Background worker service for media processing
+- Clean Architecture backend built with **.NET 8**
+- Angular frontend integration
+- Docker Compose–based infrastructure
 
 ---
 
 ## ✨ Features
 
-### ✅ Implemented
-- Clean Architecture:
-  - Domain
-  - Application
-  - Infrastructure
-  - API
-- .NET 8 Web API
-- SQL Server running in Docker
-- Entity Framework Core with migrations
-- Media upload workflow
-- Physical file storage
-- Metadata persistence using repositories
-- Media listing endpoint
-- MinIO integration for object storage
-- Background worker service (**MediaProcessor**)
-- Angular frontend integration
-- Docker Compose orchestration
+### 🎶 Media Management (Implemented)
+- Upload audio files
+- Store files in MinIO object storage
+- Persist metadata in a relational database
+- List uploaded media items
+- Background processing support
 
-### 🏗️ In Progress
-- Media streaming endpoint
-- Improved validation and error handling
-- Centralized logging strategy
-
-### ⏳ Planned
-- Authentication and authorization (JWT)
-- User-based media ownership
-- Playlists management
-- Favorites and tagging
-- Media search and filtering
-- API versioning
-- Health checks & metrics
-- CI/CD pipeline with GitHub Actions
-
----
-
-## 🎯 Project Goals
-
-1. Provide a scalable and maintainable media management backend.
-2. Ensure clear separation of responsibilities using Clean Architecture.
-3. Support asynchronous and background processing for media-related tasks.
-4. Enable future expansion with authentication, playlists, and advanced media features.
-5. Maintain a professional development workflow with Docker and GitFlow.
+### 🎼 Music Learning & Analysis (Planned / In Progress)
+- BPM (tempo) detection
+- Key and tonality recognition
+- Chord detection
+- Melody note extraction
+- Song structure analysis
+- Learning-oriented views for practice and repetition
 
 ---
 
@@ -81,19 +84,28 @@ The system exposes RESTful APIs to upload, list, and manage media files while pe
 | Database | Microsoft SQL Server (Docker) |
 | ORM | Entity Framework Core |
 | Object Storage | MinIO |
-| Background Worker | .NET Worker Service |
+| Background Processing | .NET Worker Service |
 | DevOps | Docker, Docker Compose |
 | Version Control | Git & GitHub |
 
 ---
 
-## 🖼️ Screenshots
+## 🏗️ High-Level Architecture
 
-Screenshots will be added as the frontend evolves.
-
+```mermaid
+graph TD;
+    A[Angular Frontend] -->|REST API| B[.NET 8 API]
+    B --> C[Application Layer]
+    C --> D[Domain Layer]
+    C --> E[Infrastructure Layer]
+    E -->|EF Core| F[SQL Server]
+    E -->|Media Files| G[MinIO]
+    H[Media Processor Worker] -->|Analysis Tasks| G
+    H -->|Metadata Updates| F
+```
 ---
 
-## 📡 API Endpoints
+## 📡 API Capabilities
 
 ### ✔️ Implemented
 
@@ -107,18 +119,39 @@ Returns the list of uploaded media items.
 
 ---
 
-## ⚡ Installation & Setup
+## 🏗️ Planned (Music Learning APIs)
+
+#### <kbd>GET /api/media/{id}/analysis</kbd>
+- Returns BPM, key, chords, and melody data.
+
+#### <kbd>GET /api/media/{id}/structure</kbd>
+- Returns song sections and timing.
+
+#### <kbd>GET /api/media/{id}/practice</kbd>
+- Provides learning-oriented data for practicing the song.
+
+---
+
+## 🖼️ Screenshots
+
+Screenshots will be added as the frontend evolves.
+
+---
+
+## ⚡ Internal Development setup
+
+> ⚠️ This section is intended for authorized developers only.
 
 #### 1. Clone the repository
-```
-git clone https://github.com/Mbazie-Kone/MusicLibrary.git
+```bash
+git clone https://github.com/Mbazie-Kone/MusicLearningLibrary.git
 ```
 #### 2. Start application via Docker
-```
-docker compose up -d
+```bash
+docker compose up --build -d
 ```
 #### 3. Apply EF Core migrations
-```
+```bash
 dotnet ef database update -p MusicLibrary.Infrastructure -s MusicLibrary.Api
 ```
 #### 4. Run the API
@@ -126,29 +159,16 @@ dotnet ef database update -p MusicLibrary.Infrastructure -s MusicLibrary.Api
 cd MusicLibrary.Api
 dotnet run
 ```
-
 ---
 
-## Git workflow
+## Internal Git workflow
 
 - `main` is protected and represents production-ready code
 - `develop` is the integration branch
 - Feature branches must be created from `develop`
-- Merges into `develop` should use Rebase or Squash
-- Merges into `main` should use Rebase and Merge
+- Merges into `develop` use Squash
+- Merges into `main` use Squash and Merge
 - `node_modules` must never be committed
 - Conflicts must be resolved locally, not via GitHub UI
 
 ---
-
-## 🤝 Contributing
-
-This project follows GitFlow.
-
-Pull requests are welcome and should target the `develop` branch.
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License.
