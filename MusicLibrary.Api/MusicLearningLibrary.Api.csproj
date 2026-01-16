@@ -14,11 +14,11 @@
     </PackageReference>
     <PackageReference Include="Minio" Version="5.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
-    <ProjectReference Include="..\MusicLibrary.Domain\MusicLibrary.Domain.csproj" />
+    <ProjectReference Include="..\MusicLibrary.Domain\MusicLearningLibrary.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MusicLibrary.Infrastructure\MusicLibrary.Infrastructure.csproj" />
+    <ProjectReference Include="..\MusicLibrary.Infrastructure\MusicLearningLibrary.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

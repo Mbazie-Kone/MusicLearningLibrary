@@ -8,8 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MusicLibrary.Domain\MusicLibrary.Domain.csproj" />
-    <ProjectReference Include="..\MusicLibrary.Application\MusicLibrary.Application.csproj" />
+    <ProjectReference Include="..\MusicLibrary.Domain\MusicLearningLibrary.Domain.csproj" />
+    <ProjectReference Include="..\MusicLibrary.Application\MusicLearningLibrary.Application.csproj" />
   </ItemGroup>
 
   <ItemGroup>
