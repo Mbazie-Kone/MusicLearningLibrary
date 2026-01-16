@@ -94,6 +94,9 @@ namespace MusicLearningLibrary.Api.Controllers
             if (media == null)
                 return NotFound();
 
+            if (string.IsNullOrWhiteSpace(media.FileName))
+                return Problem(detail: "Media file is missing or corrupted.", statusCode: StatusCodes.Status500InternalServerError);
+
             var (contentType, _) = await _minioService.GetObjectInfoAsync(media.FileName);
 
             var memory = new MemoryStream();
@@ -128,6 +131,9 @@ namespace MusicLearningLibrary.Api.Controllers
             var item = await _mediaRepository.GetByIdAsync(id);
             if (item == null)
                 return NotFound();
+
+            if (string.IsNullOrWhiteSpace(item.FileName))
+                return Problem(detail: "Media file is missing or corrupted.", statusCode: StatusCodes.Status500InternalServerError);
 
             // Delete physical file (best effort, log if fails?)
             try
