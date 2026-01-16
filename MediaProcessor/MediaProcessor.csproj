@@ -14,9 +14,9 @@
     <PackageReference Include="Minio" Version="5.0.0" />
     <PackageReference Include="TagLibSharp" Version="2.3.0" />
 	  
-    <ProjectReference Include="..\MusicLibrary.Domain\MusicLibrary.Domain.csproj" />
-    <ProjectReference Include="..\MusicLibrary.Application\MusicLibrary.Application.csproj" />
-    <ProjectReference Include="..\MusicLibrary.Infrastructure\MusicLibrary.Infrastructure.csproj" />
+    <ProjectReference Include="..\MusicLibrary.Domain\MusicLearningLibrary.Domain.csproj" />
+    <ProjectReference Include="..\MusicLibrary.Application\MusicLearningLibrary.Application.csproj" />
+    <ProjectReference Include="..\MusicLibrary.Infrastructure\MusicLearningLibrary.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
