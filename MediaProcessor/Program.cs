@@ -1,6 +1,6 @@
 using MediaProcessor;
 using Microsoft.EntityFrameworkCore;
-using MusicLibrary.Infrastructure.DbContexts;
+using MusicLearningLibrary.Infrastructure.DbContexts;
 
 var builder = Host.CreateApplicationBuilder(args);
 

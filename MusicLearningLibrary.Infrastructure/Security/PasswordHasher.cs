@@ -1,4 +1,4 @@
-﻿using MusicLibrary.Application.Auth.Interfaces;
+﻿using MusicLearningLibrary.Application.Auth.Interfaces;
 
 namespace MusicLearningLibrary.Infrastructure.Security
 {

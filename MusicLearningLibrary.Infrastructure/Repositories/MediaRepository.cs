@@ -1,4 +1,4 @@
-﻿using MusicLibrary.Domain.Entities;
+﻿using MusicLearningLibrary.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using MusicLearningLibrary.Infrastructure.DbContexts;
 

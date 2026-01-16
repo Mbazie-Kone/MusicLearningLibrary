@@ -1,4 +1,4 @@
-﻿using MusicLibrary.Domain.Entities;
+﻿using MusicLearningLibrary.Domain.Entities;
 
 namespace MusicLearningLibrary.Application.Auth.Interfaces
 {

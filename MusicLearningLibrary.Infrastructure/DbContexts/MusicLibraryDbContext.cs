@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MusicLibrary.Domain.Entities;
+using MusicLearningLibrary.Domain.Entities;
 
 namespace MusicLearningLibrary.Infrastructure.DbContexts
 {

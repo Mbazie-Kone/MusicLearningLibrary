@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Minio;
-using MusicLibrary.Domain.Entities;
-using MusicLibrary.Domain.Enums;
-using MusicLibrary.Infrastructure.DbContexts;
+using MusicLearningLibrary.Domain.Entities;
+using MusicLearningLibrary.Domain.Enums;
+using MusicLearningLibrary.Infrastructure.DbContexts;
 
 namespace MediaProcessor { 
 
@@ -26,6 +26,21 @@ namespace MediaProcessor {
                 .WithSSL(false)
                 .Build();
         }
+
+        // Guard clause for objectName
+        public async Task ProcessAsync(string? objectName, string filePath, CancellationToken ct)
+        {
+            if (string.IsNullOrWhiteSpace(objectName))
+            {
+                _logger.LogWarning("ObjectName is null or empty. Skipping download. FilePath: {FilePath}",
+                filePath
+                );
+                return;
+            }
+
+            await DownloadFromMinio(objectName, filePath, ct);
+        }
+
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
             _logger.LogInformation("MediaProcessor Worker started.");
@@ -56,7 +71,7 @@ namespace MediaProcessor {
 
                     // Download file from Minio
                     var tempPath = Path.GetTempFileName();
-                    await DownloadFromMinio(item.FileName, tempPath, stoppingToken);
+                    await ProcessAsync(item.FileName, tempPath, stoppingToken);
 
                     // Extract metadata
                     ExtractMetadata(item, tempPath);
@@ -99,5 +114,6 @@ namespace MediaProcessor {
             item.Artist = tagFile.Tag.FirstPerformer ?? "Unknown";
             item.Album = tagFile.Tag.Album ?? "Unknown";
         }
+
     }
 }

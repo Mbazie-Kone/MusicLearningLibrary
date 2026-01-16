@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using MusicLibrary.Application.Auth.Interfaces;
-using MusicLibrary.Domain.Entities;
+using MusicLearningLibrary.Application.Auth.Interfaces;
+using MusicLearningLibrary.Domain.Entities;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;

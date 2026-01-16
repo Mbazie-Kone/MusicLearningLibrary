@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MusicLearningLibrary.Infrastructure.DbContexts;
-using MusicLibrary.Application.Auth.Interfaces;
-using MusicLibrary.Domain.Entities;
+using MusicLearningLibrary.Application.Auth.Interfaces;
+using MusicLearningLibrary.Domain.Entities;
 
 namespace MusicLearningLibrary.Infrastructure.Repositories
 {

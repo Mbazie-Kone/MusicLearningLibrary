@@ -1,4 +1,4 @@
-﻿using MusicLibrary.Application.Auth.Interfaces;
+﻿using MusicLearningLibrary.Application.Auth.Interfaces;
 using System.Security.Cryptography;
 
 namespace MusicLearningLibrary.Infrastructure.Tokens

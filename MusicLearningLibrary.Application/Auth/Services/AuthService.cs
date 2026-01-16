@@ -1,6 +1,6 @@
 ﻿using MusicLearningLibrary.Application.Auth.Commands;
 using MusicLearningLibrary.Application.Auth.Interfaces;
-using MusicLibrary.Domain.Entities;
+using MusicLearningLibrary.Domain.Entities;
 
 namespace MusicLearningLibrary.Application.Auth.Services
 {
