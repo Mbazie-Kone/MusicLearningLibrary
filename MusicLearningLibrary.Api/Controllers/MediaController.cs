@@ -1,11 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MusicLibrary.Api.Dtos;
-using MusicLibrary.Api.Services;
-using MusicLibrary.Domain.Entities;
-using MusicLibrary.Domain.Enums;
-using MusicLibrary.Infrastructure.Repositories;
+using MusicLearningLibrary.Api.Dtos;
+using MusicLearningLibrary.Api.Services;
+using MusicLearningLibrary.Domain.Entities;
+using MusicLearningLibrary.Domain.Enums;
+using MusicLearningLibrary.Infrastructure.Repositories;
 
-namespace MusicLibrary.Api.Controllers
+
+namespace MusicLearningLibrary.Api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

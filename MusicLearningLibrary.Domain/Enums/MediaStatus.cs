@@ -1,4 +1,4 @@
-﻿namespace MusicLibrary.Domain.Enums
+﻿namespace MusicLearningLibrary.Domain.Enums
 {
     public enum MediaStatus
     {

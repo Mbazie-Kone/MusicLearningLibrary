@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
-using MusicLibrary.Application.Auth.Interfaces;
+using MusicLearningLibrary.Application.Auth.Interfaces;
 
-namespace MusicLibrary.Infrastructure.Email
+namespace MusicLearningLibrary.Infrastructure.Email
 {
     public class FakeEmailSender : IEmailSender
     {

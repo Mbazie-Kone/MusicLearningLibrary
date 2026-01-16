@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace MusicLibrary.Api.Dtos
+namespace MusicLearningLibrary.Api.Dtos
 {
     public record UpdateMediaItemRequest(
         [Required]

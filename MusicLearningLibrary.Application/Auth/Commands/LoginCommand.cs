@@ -1,5 +1,4 @@
-﻿
-namespace MusicLibrary.Application.Auth.Commands
+﻿namespace MusicLearningLibrary.Application.Auth.Commands
 {
     public record LoginCommand(
         string Email,

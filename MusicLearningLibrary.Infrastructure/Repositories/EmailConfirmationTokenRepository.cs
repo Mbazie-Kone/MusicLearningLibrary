@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MusicLearningLibrary.Infrastructure.DbContexts;
 using MusicLibrary.Application.Auth.Interfaces;
 using MusicLibrary.Domain.Entities;
-using MusicLibrary.Infrastructure.DbContexts;
 
-namespace MusicLibrary.Infrastructure.Repositories
+namespace MusicLearningLibrary.Infrastructure.Repositories
 {
 
     public class EmailConfirmationTokenRepository : IEmailConfirmationTokenRepository

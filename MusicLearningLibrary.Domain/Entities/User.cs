@@ -1,4 +1,4 @@
-﻿namespace MusicLibrary.Domain.Entities
+﻿namespace MusicLearningLibrary.Domain.Entities
 {
     public class User
     {

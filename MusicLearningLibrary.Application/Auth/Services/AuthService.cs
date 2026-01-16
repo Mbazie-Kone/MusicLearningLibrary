@@ -1,8 +1,8 @@
-﻿using MusicLibrary.Application.Auth.Commands;
-using MusicLibrary.Application.Auth.Interfaces;
+﻿using MusicLearningLibrary.Application.Auth.Commands;
+using MusicLearningLibrary.Application.Auth.Interfaces;
 using MusicLibrary.Domain.Entities;
 
-namespace MusicLibrary.Application.Auth.Services
+namespace MusicLearningLibrary.Application.Auth.Services
 {
     public class AuthService : IAuthService
     {

@@ -1,7 +1,7 @@
 ﻿using MusicLibrary.Application.Auth.Interfaces;
 using System.Security.Cryptography;
 
-namespace MusicLibrary.Infrastructure.Tokens
+namespace MusicLearningLibrary.Infrastructure.Tokens
 {
     public class ConfirmationTokenGenerator : IConfirmationTokenGenerator
     {

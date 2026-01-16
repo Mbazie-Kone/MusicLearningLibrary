@@ -1,4 +1,4 @@
-﻿namespace MusicLibrary.Api.Dtos
+﻿namespace MusicLearningLibrary.Api.Dtos
 {
     public class RegisterRequestDto
     {

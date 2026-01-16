@@ -1,6 +1,6 @@
 using MusicLibrary.Domain.Entities;
 
-namespace MusicLibrary.Infrastructure.Repositories
+namespace MusicLearningLibrary.Infrastructure.Repositories
 {
     public interface IMediaRepository
     {

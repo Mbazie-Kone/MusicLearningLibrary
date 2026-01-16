@@ -1,6 +1,6 @@
 ﻿using MusicLibrary.Application.Auth.Interfaces;
 
-namespace MusicLibrary.Infrastructure.Security
+namespace MusicLearningLibrary.Infrastructure.Security
 {
     public class PasswordHasher : IPasswordHasher
     {

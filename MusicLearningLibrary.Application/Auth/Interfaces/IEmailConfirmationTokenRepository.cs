@@ -1,6 +1,6 @@
 ﻿using MusicLibrary.Domain.Entities;
 
-namespace MusicLibrary.Application.Auth.Interfaces
+namespace MusicLearningLibrary.Application.Auth.Interfaces
 {
     public interface IEmailConfirmationTokenRepository
     {

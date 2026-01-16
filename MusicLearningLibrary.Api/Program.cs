@@ -1,7 +1,6 @@
 using MusicLibrary.Infrastructure.DbContexts;
 using Microsoft.EntityFrameworkCore;
 using MusicLibrary.Infrastructure.Repositories;
-using MusicLibrary.Api.Services;
 using Microsoft.AspNetCore.Http.Features;
 using MusicLibrary.Application.Auth.Interfaces;
 using MusicLibrary.Infrastructure.Tokens;
@@ -11,6 +10,7 @@ using MusicLibrary.Application.Auth.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using MusicLearningLibrary.Api.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -1,6 +1,6 @@
-using MusicLibrary.Domain.Enums;
+using MusicLearningLibrary.Domain.Enums;
 
-namespace MusicLibrary.Domain.Entities
+namespace MusicLearningLibrary.Domain.Entities
 {
     public class MediaItem
     {

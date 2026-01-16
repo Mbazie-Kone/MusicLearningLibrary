@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
-namespace MusicLibrary.Infrastructure.DbContexts
+namespace MusicLearningLibrary.Infrastructure.DbContexts
 {
     public class MusicLibraryDbContextFactory : IDesignTimeDbContextFactory<MusicLibraryDbContext>
     {

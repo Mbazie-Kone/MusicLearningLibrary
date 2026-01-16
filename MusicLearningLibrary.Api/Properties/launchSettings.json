@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "MusicLibrary.Api": {
+    "MusicLearningLibrary.Api": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

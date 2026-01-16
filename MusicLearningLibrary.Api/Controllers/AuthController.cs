@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MusicLibrary.Api.Dtos;
-using MusicLibrary.Application.Auth.Commands;
-using MusicLibrary.Application.Auth.Interfaces;
+using MusicLearningLibrary.Api.Dtos;
+using MusicLearningLibrary.Application.Auth.Commands;
+using MusicLearningLibrary.Application.Auth.Interfaces;
 
-namespace MusicLibrary.Api.Controllers
+namespace MusicLearningLibrary.Api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

@@ -1,4 +1,4 @@
-﻿namespace MusicLibrary.Api.Services
+﻿namespace MusicLearningLibrary.Api.Services
 {
     public interface IMinioService
     {

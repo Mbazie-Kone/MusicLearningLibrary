@@ -1,6 +1,6 @@
-﻿using MusicLibrary.Application.Auth.Commands;
+﻿using MusicLearningLibrary.Application.Auth.Commands;
 
-namespace MusicLibrary.Application.Auth.Interfaces
+namespace MusicLearningLibrary.Application.Auth.Interfaces
 {
     public interface IAuthService
     {

@@ -1,8 +1,8 @@
 ﻿using MusicLibrary.Domain.Entities;
-using MusicLibrary.Infrastructure.DbContexts;
 using Microsoft.EntityFrameworkCore;
+using MusicLearningLibrary.Infrastructure.DbContexts;
 
-namespace MusicLibrary.Infrastructure.Repositories
+namespace MusicLearningLibrary.Infrastructure.Repositories
 {
     public class MediaRepository : IMediaRepository
     {
