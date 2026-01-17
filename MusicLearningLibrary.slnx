@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="MediaProcessor/MediaProcessor.csproj" />
+  <Project Path="MusicLearningLibrary.Api/MusicLearningLibrary.Api.csproj" />
+  <Project Path="MusicLearningLibrary.Application/MusicLearningLibrary.Application.csproj" />
+  <Project Path="MusicLearningLibrary.Domain/MusicLearningLibrary.Domain.csproj" />
+  <Project Path="MusicLearningLibrary.Infrastructure/MusicLearningLibrary.Infrastructure.csproj" />
+</Solution>
