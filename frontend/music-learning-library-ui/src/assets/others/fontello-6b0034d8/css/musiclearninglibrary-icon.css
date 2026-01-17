@@ -1,11 +1,11 @@
 @font-face {
-  font-family: 'musiclibrary-icon';
-  src: url('../font/musiclibrary-icon.eot?39968027');
-  src: url('../font/musiclibrary-icon.eot?39968027#iefix') format('embedded-opentype'),
-       url('../font/musiclibrary-icon.woff2?39968027') format('woff2'),
-       url('../font/musiclibrary-icon.woff?39968027') format('woff'),
-       url('../font/musiclibrary-icon.ttf?39968027') format('truetype'),
-       url('../font/musiclibrary-icon.svg?39968027#musiclibrary-icon') format('svg');
+  font-family: 'musiclearninglibrary-icon';
+  src: url('../font/musiclearninglibrary-icon.eot?39968027');
+  src: url('../font/musiclearninglibrary-icon.eot?39968027#iefix') format('embedded-opentype'),
+       url('../font/musiclearninglibrary-icon.woff2?39968027') format('woff2'),
+       url('../font/musiclearninglibrary-icon.woff?39968027') format('woff'),
+       url('../font/musiclearninglibrary-icon.ttf?39968027') format('truetype'),
+       url('../font/musiclearninglibrary-icon.svg?39968027#musiclearninglibrary-icon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -14,13 +14,13 @@
 /*
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
-    font-family: 'musiclibrary-icon';
-    src: url('../font/musiclibrary-icon.svg?39968027#musiclibrary-icon') format('svg');
+    font-family: 'musiclearninglibrary-icon';
+    src: url('../font/musiclearninglibrary-icon.svg?39968027#musiclearninglibrary-icon') format('svg');
   }
 }
 */
 [class^="icon-"]:before, [class*=" icon-"]:before {
-  font-family: "musiclibrary-icon";
+  font-family: "musiclearninglibrary-icon";
   font-style: normal;
   font-weight: normal;
   speak: never;
