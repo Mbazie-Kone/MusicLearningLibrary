@@ -17,8 +17,8 @@ services:
   api:
     build:
       context: .
-      dockerfile: MusicLibrary.Api/Dockerfile
-    container_name: musiclibrary-api
+      dockerfile: MusicLearningLibrary.Api/Dockerfile
+    container_name: musiclearninglibrary-api
     ports:
       - "5000:5000"
       - "5001:5001"
@@ -54,7 +54,7 @@ services:
 
   db:
     image: mcr.microsoft.com/mssql/server:2022-latest
-    container_name: musiclibrary-db
+    container_name: musiclearninglibrary-db
     environment:
       SA_PASSWORD: "12345678aA!"
       ACCEPT_EULA: "Y"
@@ -67,9 +67,9 @@ services:
       
   frontend:
     build:
-      context: ./frontend/music-library-ui
+      context: ./frontend/music-learning-library-ui
       dockerfile: Dockerfile
-    container_name: musiclibrary-frontend
+    container_name: musiclearninglibrary-frontend
     ports:
       - "4200:80"
     depends_on:

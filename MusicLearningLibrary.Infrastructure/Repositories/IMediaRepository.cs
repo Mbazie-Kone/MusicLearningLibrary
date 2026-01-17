@@ -1,0 +1,14 @@
+using MusicLearningLibrary.Domain.Entities;
+
+namespace MusicLearningLibrary.Infrastructure.Repositories
+{
+    public interface IMediaRepository
+    {
+        Task AddAsync(MediaItem item);
+
+        Task DeleteAsync(int id);
+        Task<List<MediaItem>> GetAllAsync();
+        Task<MediaItem?> GetByIdAsync(int id);
+        Task UpdateAsync(MediaItem item);
+    }
+}
