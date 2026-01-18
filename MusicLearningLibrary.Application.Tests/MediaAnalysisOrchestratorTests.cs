@@ -19,7 +19,7 @@ namespace MusicLearningLibrary.Application.Tests
             var mediaId = Guid.NewGuid();
 
             // Act
-            var analysis = orchestrator.RequestAnalysis(mediaId);
+            var analysis = orchestrator.CreateAnalysis(mediaId);
 
             // Assert
             Assert.NotNull(analysis);
@@ -35,10 +35,10 @@ namespace MusicLearningLibrary.Application.Tests
             var orchestrator = new MediaAnalysisOrchestrator(repository);
 
             var mediaId = Guid.NewGuid();
-            var analysis = orchestrator.RequestAnalysis(mediaId);
+            var analysis = orchestrator.CreateAnalysis(mediaId);
 
             // Act
-            orchestrator.MarkAnalysisProcessing(analysis.Id);
+            orchestrator.MarkProcessing(analysis.Id);
 
             // Assert
             var updatedAnalysis = repository.GetById(analysis.Id);
@@ -46,7 +46,7 @@ namespace MusicLearningLibrary.Application.Tests
         }
 
         [Fact]
-        public async Task Orchestrator_must_not_bypass_domain_rules()
+        public void Orchestrator_must_not_bypass_domain_rules()
         {
             // Arrange
             var repository = new InMemoryMediaAnalysisRepository();
@@ -56,7 +56,8 @@ namespace MusicLearningLibrary.Application.Tests
             var analysis = orchestrator.CreateAnalysis(mediaId);
 
             // Act & Assert
-            Assert.ThrowsAsync<InvalidOperationException>(() => orchestrator.MarkCompleted(analysis.Id));
+            Assert.Throws<InvalidOperationException>(() => orchestrator.MarkCompleted(analysis.Id));
+            
         }
     }
 }
