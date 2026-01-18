@@ -1,6 +1,7 @@
 <Solution>
   <Project Path="MediaProcessor/MediaProcessor.csproj" />
   <Project Path="MusicLearningLibrary.Api/MusicLearningLibrary.Api.csproj" />
+  <Project Path="MusicLearningLibrary.Application.Tests/MusicLearningLibrary.Application.Tests.csproj" Id="d67ba9c2-a286-4c06-ab15-6a3cf50739b4" />
   <Project Path="MusicLearningLibrary.Application/MusicLearningLibrary.Application.csproj" />
   <Project Path="MusicLearningLibrary.Domain.Tests/MusicLearningLibrary.Domain.Tests.csproj" Id="efe3157c-e0fc-4f12-bcb5-d156fff6210b" />
   <Project Path="MusicLearningLibrary.Domain/MusicLearningLibrary.Domain.csproj" />
