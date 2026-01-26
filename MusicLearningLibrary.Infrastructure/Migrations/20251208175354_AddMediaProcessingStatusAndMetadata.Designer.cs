@@ -10,9 +10,9 @@ using MusicLearningLibrary.Infrastructure.DbContexts;
 
 #nullable disable
 
-namespace MusicLibrary.Infrastructure.Migrations
+namespace MusicLearningLibrary.Infrastructure.Migrations
 {
-    [DbContext(typeof(MusicLibraryDbContext))]
+    [DbContext(typeof(MusicLearningLibraryDbContext))]
     [Migration("20251208175354_AddMediaProcessingStatusAndMetadata")]
     partial class AddMediaProcessingStatusAndMetadata
     {
@@ -26,7 +26,7 @@ namespace MusicLibrary.Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("MusicLibrary.Domain.Entities.MediaItem", b =>
+            modelBuilder.Entity("MusicLearningLibrary.Domain.Entities.MediaItem", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

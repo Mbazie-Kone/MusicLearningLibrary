@@ -6,9 +6,9 @@ namespace MusicLearningLibrary.Infrastructure.Repositories
 {
     public class MediaRepository : IMediaRepository
     {
-        private readonly MusicLibraryDbContext _context;
+        private readonly MusicLearningLibraryDbContext _context;
 
-        public MediaRepository(MusicLibraryDbContext context)
+        public MediaRepository(MusicLearningLibraryDbContext context)
         {
             _context = context;
         }

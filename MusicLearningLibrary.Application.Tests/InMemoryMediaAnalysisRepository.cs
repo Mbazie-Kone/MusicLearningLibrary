@@ -27,5 +27,8 @@ namespace MusicLearningLibrary.Application.Tests
         {
             _store[analysis.Id] = analysis;
         }
+
+        public IEnumerable<Guid> Ids() => _store.Keys;
+
     }
 }

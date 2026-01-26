@@ -10,9 +10,9 @@ using MusicLearningLibrary.Infrastructure.DbContexts;
 
 #nullable disable
 
-namespace MusicLibrary.Infrastructure.Migrations
+namespace MusicLearningLibrary.Infrastructure.Migrations
 {
-    [DbContext(typeof(MusicLibraryDbContext))]
+    [DbContext(typeof(MusicLearningLibraryDbContext))]
     [Migration("20251226112455_InitialAuth")]
     partial class InitialAuth
     {
@@ -26,7 +26,7 @@ namespace MusicLibrary.Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("MusicLibrary.Domain.Entities.EmailConfirmationToken", b =>
+            modelBuilder.Entity("MusicLearningLibrary.Domain.Entities.EmailConfirmationToken", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -53,7 +53,7 @@ namespace MusicLibrary.Infrastructure.Migrations
                     b.ToTable("EmailConfirmationTokens");
                 });
 
-            modelBuilder.Entity("MusicLibrary.Domain.Entities.MediaItem", b =>
+            modelBuilder.Entity("MusicLearningLibrary.Domain.Entities.MediaItem", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -103,7 +103,7 @@ namespace MusicLibrary.Infrastructure.Migrations
                     b.ToTable("MediaItems");
                 });
 
-            modelBuilder.Entity("MusicLibrary.Domain.Entities.User", b =>
+            modelBuilder.Entity("MusicLearnigLibrary.Domain.Entities.User", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()

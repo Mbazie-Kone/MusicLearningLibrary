@@ -9,10 +9,10 @@ using MusicLearningLibrary.Infrastructure.DbContexts;
 
 #nullable disable
 
-namespace MusicLibrary.Infrastructure.Migrations
+namespace MusicLearningLibrary.Infrastructure.Migrations
 {
-    [DbContext(typeof(MusicLibraryDbContext))]
-    partial class MusicLibraryDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(MusicLearningLibraryDbContext))]
+    partial class MusicLearningLibraryDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -23,7 +23,7 @@ namespace MusicLibrary.Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("MusicLibrary.Domain.Entities.EmailConfirmationToken", b =>
+            modelBuilder.Entity("MusicLearningLibrary.Domain.Entities.EmailConfirmationToken", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -50,7 +50,7 @@ namespace MusicLibrary.Infrastructure.Migrations
                     b.ToTable("EmailConfirmationTokens");
                 });
 
-            modelBuilder.Entity("MusicLibrary.Domain.Entities.MediaItem", b =>
+            modelBuilder.Entity("MusicLearnigLibrary.Domain.Entities.MediaItem", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -100,7 +100,7 @@ namespace MusicLibrary.Infrastructure.Migrations
                     b.ToTable("MediaItems");
                 });
 
-            modelBuilder.Entity("MusicLibrary.Domain.Entities.User", b =>
+            modelBuilder.Entity("MusicLearningLibrary.Domain.Entities.User", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()

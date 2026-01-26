@@ -3,14 +3,14 @@ using MusicLearningLibrary.Infrastructure.DbContexts;
 using MusicLearningLibrary.Application.Auth.Interfaces;
 using MusicLearningLibrary.Domain.Entities;
 
-namespace MusicLearningLibrary.Infrastructure.Repositories
+namespace MusicLearningLearningLibrary.Infrastructure.Repositories
 {
 
     public class EmailConfirmationTokenRepository : IEmailConfirmationTokenRepository
     {
-        private readonly MusicLibraryDbContext _db;
+        private readonly MusicLearningLibraryDbContext _db;
 
-        public EmailConfirmationTokenRepository(MusicLibraryDbContext db)
+        public EmailConfirmationTokenRepository(MusicLearningLibraryDbContext db)
         {
             _db = db;
         }

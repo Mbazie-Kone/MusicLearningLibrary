@@ -50,7 +50,7 @@ namespace MediaProcessor {
                 try
                 {
                     using var scope = _serviceProvider.CreateScope();
-                    var db = scope.ServiceProvider.GetRequiredService<MusicLibraryDbContext>();
+                    var db = scope.ServiceProvider.GetRequiredService<MusicLearningLibraryDbContext>();
 
                     var item = await db.MediaItems
                         .Where(m => m.Status == MediaStatus.Pending)

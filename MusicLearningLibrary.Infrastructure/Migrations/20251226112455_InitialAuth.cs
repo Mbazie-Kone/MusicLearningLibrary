@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace MusicLibrary.Infrastructure.Migrations
+namespace MusicLearningLibrary.Infrastructure.Migrations
 {
     /// <inheritdoc />
     public partial class InitialAuth : Migration

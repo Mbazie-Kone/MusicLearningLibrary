@@ -14,6 +14,8 @@ namespace MusicLearningLibrary.Domain.Entities
        
         public string? FailureReason { get; private set; }
 
+        public string? Error { get; private set; }
+
         private MediaAnalysis() { }
 
         public static MediaAnalysis Create(Guid mediaId)
