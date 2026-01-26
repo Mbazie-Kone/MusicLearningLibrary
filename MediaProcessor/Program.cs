@@ -7,7 +7,7 @@ var builder = Host.CreateApplicationBuilder(args);
 // =========================
 // Database (EF Core)
 // =========================
-builder.Services.AddDbContext<MusicLibraryDbContext>(options =>
+builder.Services.AddDbContext<MusicLearningLibraryDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"), sql =>
     {

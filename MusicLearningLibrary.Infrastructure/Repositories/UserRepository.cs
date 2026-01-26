@@ -7,9 +7,9 @@ namespace MusicLearningLibrary.Infrastructure.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        private readonly MusicLibraryDbContext _db;
+        private readonly MusicLearningLibraryDbContext _db;
 
-        public UserRepository(MusicLibraryDbContext db)
+        public UserRepository(MusicLearningLibraryDbContext db)
         {
             _db = db;
         }

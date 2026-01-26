@@ -3,9 +3,9 @@ using MusicLearningLibrary.Domain.Entities;
 
 namespace MusicLearningLibrary.Infrastructure.DbContexts
 {
-    public class MusicLibraryDbContext : DbContext
+    public class MusicLearningLibraryDbContext : DbContext
     {
-        public MusicLibraryDbContext(DbContextOptions<MusicLibraryDbContext> options) : base(options)
+        public MusicLearningLibraryDbContext(DbContextOptions<MusicLearningLibraryDbContext> options) : base(options)
         {
         }
 
@@ -33,11 +33,28 @@ namespace MusicLearningLibrary.Infrastructure.DbContexts
                 entity.Property(e => e.UploadedAt)
                     .HasDefaultValueSql("GETDATE()"); // Default value
             });
+
+            modelBuilder.Entity<MediaAnalysis>(entity =>
+            {
+                entity.HasKey(x => x.Id);
+
+                entity.Property(x => x.Status)
+                    .HasConversion<int>()
+                    .IsRequired();
+
+                entity.Property(x => x.RequestedAt).IsRequired();
+                entity.Property(x => x.CompletedAt);
+
+                entity.Property(x => x.Error)
+                    .HasMaxLength(1024);
+
+                entity.Property(x => x.MediaId).IsRequired();
+            });
         }
 
         public DbSet<User> Users => Set<User>();
         public DbSet<EmailConfirmationToken> EmailConfirmationTokens => Set<EmailConfirmationToken>();
 
-
+        public DbSet<MediaAnalysis> MediaAnalyses => Set<MediaAnalysis>();
     }
 }

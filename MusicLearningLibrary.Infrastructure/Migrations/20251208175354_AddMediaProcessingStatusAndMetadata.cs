@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace MusicLibrary.Infrastructure.Migrations
+namespace MusicLearningLibrary.Infrastructure.Migrations
 {
     /// <inheritdoc />
     public partial class AddMediaProcessingStatusAndMetadata : Migration

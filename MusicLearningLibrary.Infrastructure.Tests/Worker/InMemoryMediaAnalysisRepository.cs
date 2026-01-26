@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MusicLearningLibrary.Application.Tests
+namespace MusicLearningLibrary.Infrastructure.Tests.Worker
 {
-    public class InMemoryMediaAnalysisRepository : IMediaAnalysisRepository
+    public sealed class InMemoryMediaAnalysisRepository : IMediaAnalysisRepository
     {
 
         private readonly Dictionary<Guid, MediaAnalysis> _store = new();
@@ -28,7 +28,7 @@ namespace MusicLearningLibrary.Application.Tests
             _store[analysis.Id] = analysis;
         }
 
-        public IEnumerable<Guid> Ids() => _store.Keys;
-
+        // Helper for the test worker: iterate through all analyses
+        public IEnumerable<Guid> Ids() => _store.Keys.ToArray();
     }
 }

@@ -11,8 +11,8 @@ namespace MusicLearningLibrary.Domain.Entities
 
         public DateTime RequestedAt { get; private set; }
         public DateTime? CompletedAt { get; private set; }
-       
-        public string? FailureReason { get; private set; }
+
+        public string? Error { get; private set; }
 
         private MediaAnalysis() { }
 
@@ -48,18 +48,18 @@ namespace MusicLearningLibrary.Domain.Entities
             CompletedAt = DateTime.UtcNow;
         }
 
-        public void MarkFailed(string reason)
+        public void MarkFailed(string error)
         {
             /*if (Status != MediaAnalysisStatus.Processing)
                 throw new InvalidOperationException("Only processing analysis can fail.");*/
 
-            if (string.IsNullOrWhiteSpace(reason))
-                throw new ArgumentException("Error message is required.", nameof(reason));
+            if (string.IsNullOrWhiteSpace(error))
+                throw new ArgumentException("Error message is required.", nameof(error));
 
             EnsureStatus(MediaAnalysisStatus.Processing);
 
             Status = MediaAnalysisStatus.Failed;
-            FailureReason = reason;
+            Error = error;
             CompletedAt = DateTime.UtcNow;
         }
 

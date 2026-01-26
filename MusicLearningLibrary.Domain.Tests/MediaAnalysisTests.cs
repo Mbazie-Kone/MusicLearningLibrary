@@ -48,7 +48,7 @@ namespace MusicLearningLibrary.Domain.Tests
             analysis.MarkFailed("Analysis error");
 
             Assert.Equal(MediaAnalysisStatus.Failed, analysis.Status);
-            Assert.Equal("Analysis error", analysis.FailureReason);
+            Assert.Equal("Analysis error", analysis.Error);
         }
 
         [Fact]

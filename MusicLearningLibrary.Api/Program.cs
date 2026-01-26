@@ -11,11 +11,12 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using MusicLearningLibrary.Api.Services;
+using MusicLearningLearningLibrary.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add Dbcontext
-builder.Services.AddDbContext<MusicLibraryDbContext>(options =>
+builder.Services.AddDbContext<MusicLearningLibraryDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddControllers();
