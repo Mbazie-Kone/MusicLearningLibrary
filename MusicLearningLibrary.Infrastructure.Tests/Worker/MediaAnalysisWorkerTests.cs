@@ -97,7 +97,6 @@ namespace MusicLearningLibrary.Infrastructure.Tests.Worker
                     }
 
                     return;
-                    
                 }
             }
         }
