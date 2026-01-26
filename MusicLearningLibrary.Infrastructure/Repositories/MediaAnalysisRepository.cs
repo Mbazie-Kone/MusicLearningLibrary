@@ -1,5 +1,6 @@
 ﻿using MusicLearningLibrary.Application.Abstractions;
 using MusicLearningLibrary.Domain.Entities;
+using MusicLearningLibrary.Domain.Enums;
 using MusicLearningLibrary.Infrastructure.DbContexts;
 using System;
 using System.Collections.Generic;
@@ -36,6 +37,13 @@ namespace MusicLearningLibrary.Infrastructure.Repositories
         }
 
         // Helper useful for workers (if needed in tests/workers)
-
+        public List<MediaAnalysis> GetPending(int take = 10)
+        {
+            return _db.MediaAnalyses
+                .Where(x => x.Status == MediaAnalysisStatus.Pending)
+                .OrderBy(x => x.RequestedAt)
+                .Take(take)
+                .ToList();
+        }
     }
 }
