@@ -85,7 +85,9 @@ namespace MusicLearningLibrary.Infrastructure.Tests.Worker
                     if (ThrowOnComplete)
                     {
                         var a = _repo.GetById(analysis.Id);
+
                         a.MarkFailed("Simulated processing error");
+
                         _repo.Update(a);
                     }
 
