@@ -28,8 +28,8 @@ namespace MusicLearningLibrary.Infrastructure.Tests.Worker
             worker.ProcessNextPending();
 
             // Assert
-            Assert.Equal(MediaAnalysisStatus.Processing, repo.GetById(pending.Id).status);
-            Assert.Equal(MediaAnalysisStatus.Processing, repo.GetById(processing.Id).status); // unchanged
+            Assert.Equal(MediaAnalysisStatus.Processing, repo.GetById(pending.Id).Status);
+            Assert.Equal(MediaAnalysisStatus.Processing, repo.GetById(processing.Id).Status); // unchanged
         }
 
         [Fact]
@@ -51,8 +51,8 @@ namespace MusicLearningLibrary.Infrastructure.Tests.Worker
 
             // Assert
             var updated = repo.GetById(pending.Id);
-            Assert.Equal(MediaAnalysisStatus.Failed, updated.status);
-            Assert.False(string.IsNullOrWhiteSpace(updated.error));
+            Assert.Equal(MediaAnalysisStatus.Failed, updated.Status);
+            Assert.False(string.IsNullOrWhiteSpace(updated.Error));
         }
 
         // --- helpers for test only ---
@@ -81,18 +81,11 @@ namespace MusicLearningLibrary.Infrastructure.Tests.Worker
                     // Mark processing via application layer
                     _orchestrator.MarkProcessing(analysis.Id);
 
-                    try
+                    // Simulate failure *after* processing started
+                    if (ThrowOnComplete)
                     {
-                        if (ThrowOnComplete)
-                            throw new Exception("Simulated processing error");
-                        
-                        _orchestrator.MarkCompleted(analysis.Id);
-                    }
-                    catch (Exception ex)
-                    {
-                        // IMPORTANT: domain allows Failed only from Processing
                         var a = _repo.GetById(analysis.Id);
-                        a.MarkFailed(ex.Message);
+                        a.MarkFailed("Simulated processing error");
                         _repo.Update(a);
                     }
 
